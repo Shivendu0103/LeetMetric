@@ -62,8 +62,8 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    columns: white;
+    font-size: 1rem;
+    color: white;
     font-weight: 700;
     background: conic-gradient(#345678 var(--progress-degree, 0%),
     #987658 0%);
@@ -72,4 +72,14 @@ h1{
 .circle span{
     position: relative;
     z-index: 2;
+}
+
+.progress{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+
 }
