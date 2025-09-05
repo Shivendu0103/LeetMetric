@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const cardStatsContainer = document.querySelector(".stats-card");
 
 
-
+// return true or false based on regex
     function validateUsername(username) {
         if(username.trim() === ""){
             alert("Username should not be empty");
@@ -21,7 +21,24 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         const regex = /^[a-zA-Z0-9_-]{1,15}$/;
         const isMatching = regex.test(username);
+        if(!isMatching) {
+            alert("invalid username");
+        }
         return isMatching;
+    }
+
+
+    async function fetchUserDetails(username) {
+        const url = 'https://leetcode-stats-api.herokuapp.com/${username}'
+        try{
+            const response = await fetch(url);
+            if(!response.ok){
+                throw new Error("Unable to fetch teh user details ");
+                
+            }
+        }
+
+        
     }
 
 
@@ -29,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
     searchButton.addEventListener('click', function(){
         const username = usernameInput.value;
         console.log("loggin username", username);
+        if(validateUsername(username)) {
+            fetchUserDetails(username);
+        }
     })
 
 
