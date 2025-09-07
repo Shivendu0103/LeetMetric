@@ -54,3 +54,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 }) 
+
+
+
+
+/// del this
+
+    searchButton.addEventListener('click', function(){
+        const username = usernameInput.value;
+        console.log("loggin username", username);
+        if(validateUsername(username)) {
+            fetchUserDetails(username);
+        }
+    })
+
+
+
+}) 
